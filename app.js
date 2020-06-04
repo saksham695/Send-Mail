@@ -17,5 +17,5 @@ if (writeInFile) {
 }
 
 // reading the file again to check , file has changed or not
-let readFile = fs.readFileSync(fileName).toString();
+readFile = fs.readFileSync(fileName).toString();
 console.log(readFile);
