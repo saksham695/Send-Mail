@@ -15,9 +15,29 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.render("home");
-});
+let time;
+app.get(
+  "/",
+  (req, res, next) => {
+    let date_ob = new Date();
+
+    let hours = date_ob.getHours();
+
+    // current minutes
+    let minutes = date_ob.getMinutes();
+
+    // current seconds
+    let seconds = date_ob.getSeconds();
+    time = hours + ":" + minutes + ":" + seconds;
+    console.log(time);
+    next();
+  },
+  (req, res) => {
+    res.render("home", {
+      time: time,
+    });
+  }
+);
 app.get("/about", (req, res) => {
   var fortuneRandom = fortunes[Math.floor(Math.random() * fortunes.length)];
   res.render("about", { fortune: fortuneRandom });
