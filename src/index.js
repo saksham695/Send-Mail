@@ -30,7 +30,7 @@ app.get(
     let seconds = date_ob.getSeconds();
     time = hours + ":" + minutes + ":" + seconds;
     console.log(time);
-    // next();
+    next();
   },
   (req, res) => {
     res.render("home", {
